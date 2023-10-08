@@ -16,15 +16,15 @@ THIS IS A SCRIPT FOR AUTO INSTALLATION OF UDP (HYSTERIA SERVER)
 
 // Download the script
 ```
-https://github.com/Supotsupot/elyvpn_scrift.sh/blob/main/elyscrift.sh
+wget https://raw.githubusercontent.com/Supotsupot/elyvpn_scrift.sh/main/elyscrift.sh
 ```
 // Edit script configuration 
 ```
-nano Scrift.sh
+nano elyscrift.sh
 ```
 // Install the script
 ```
-chmod +x Scrift.sh; ./Scrift.sh
+chmod +x elyscrift.sh; ./elyscrift.sh
 ```
 
 ## :octocat: by Yutax tax-u
