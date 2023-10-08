@@ -2,7 +2,7 @@
 #
 # Try `install_agnudp.sh --help` for usage.
 #
-# (c) 2023 Yutax Tax-u
+# (c) 2023 Yutax tax-u
 #
 
 set -e
@@ -13,7 +13,7 @@ set -e
 ###
 
 # Domain Name
-DOMAIN="vpn.yutax.com"
+DOMAIN="vpn.ely.com"
 
 # PROTOCOL
 PROTOCOL="udp"
@@ -22,10 +22,10 @@ PROTOCOL="udp"
 UDP_PORT=":36712"
 
 # OBFS
-OBFS="devyutax"
+OBFS="devely"
 
 # PASSWORDS
-PASSWORD="devyutax"
+PASSWORD="devely"
 
 # Basename of this script
 SCRIPT_NAME="$(basename "$0")"
@@ -545,18 +545,18 @@ check_hysteria_homedir() {
 
 show_usage_and_exit() {
 	echo
-	echo -e "\t$(tbold)$SCRIPT_NAME$(treset) - YUTAX-UDP server install script"
+	echo -e "\t$(tbold)$SCRIPT_NAME$(treset) - ELY-UDP server install script"
 	echo
 	echo -e "Usage:"
 	echo
-	echo -e "$(tbold)Install YUTAX-UDP$(treset)"
+	echo -e "$(tbold)Install ELY-UDP$(treset)"
 	echo -e "\t$0 [ -f | -l <file> | --version <version> ]"
 	echo -e "Flags:"
 	echo -e "\t-f, --force\tForce re-install latest or specified version even if it has been installed."
-	echo -e "\t-l, --local <file>\tInstall specified YUTAX-UDP binary instead of download it."
+	echo -e "\t-l, --local <file>\tInstall specified ELY-UDP binary instead of download it."
 	echo -e "\t--version <version>\tInstall specified version instead of the latest."
 	echo
-	echo -e "$(tbold)Remove YUTAX-UDP$(treset)"
+	echo -e "$(tbold)Remove ELY-UDP$(treset)"
 	echo -e "\t$0 --remove"
 	echo
 	echo -e "$(tbold)Check for the update$(treset)"
@@ -639,7 +639,7 @@ tpl_hysteria_server_service_base() {
 
   cat << EOF
 [Unit]
-Description=YUTAX-UDP Service
+Description=ELY-UDP Service
 After=network.target
 
 [Service]
@@ -875,7 +875,7 @@ perform_install() {
 					    start_services
 						if [[ -n "$_is_frash_install" ]]; then
 							echo
-							echo -e "$(tbold)Congratulation! MIK-UDP has been successfully installed on your server.$(treset)"
+							echo -e "$(tbold)Congratulation! ELY-UDP has been successfully installed on your server.$(treset)"
 							echo
 							echo -e "$(tbold)Client app Cyborg VPN:$(treset)"
 							echo -e "$(tblue)https://play.google.com/store/apps/details?id=com.cyborgvpn.pro$(treset)"
@@ -890,7 +890,7 @@ perform_install() {
 								restart_running_services
 								start_services
 								echo
-								echo -e "$(tbold)YUTAX-UDP has been successfully update to $VERSION.$(treset)"
+								echo -e "$(tbold)ELY-UDP has been successfully update to $VERSION.$(treset)"
 								echo
 								fi
 }
@@ -901,7 +901,7 @@ perform_remove() {
 	perform_remove_hysteria_systemd
 	
 	echo
-	echo -e "$(tbold)Congratulation! YUTAX-UDP has been successfully removed from your server.$(treset)"
+	echo -e "$(tbold)Congratulation! ELY-UDP has been successfully removed from your server.$(treset)"
 	echo
 	echo -e "You still need to remove configuration files and ACME certificates manually with the following commands:"
 	echo
@@ -935,7 +935,7 @@ setup_ssl() {
 	openssl x509 -req -extfile <(printf "subjectAltName=DNS:$DOMAIN,DNS:$DOMAIN") -days 3650 -in /etc/hysteria/hysteria.server.csr -CA /etc/hysteria/hysteria.ca.crt -CAkey /etc/hysteria/hysteria.ca.key -CAcreateserial -out /etc/hysteria/hysteria.server.crt	
  }
 start_services() {
-	echo "Starting YUTAX-UDP"
+	echo "Starting ELY-UDP"
 	apt update
 	sudo debconf-set-selections <<< "iptables-persistent iptables-persistent/autosave_v4 boolean true"
         sudo debconf-set-selections <<< "iptables-persistent iptables-persistent/autosave_v6 boolean true"
